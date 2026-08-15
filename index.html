@@ -33,7 +33,7 @@
 <script>
 const qs={
 q1:[1,"¿Qué quieres recordar de este cumpleaños?",[
-["https://images.unsplash.com/photo-1533130061792-64b345e4a833?auto=format&fit=crop&w=1000&q=85","⚡","La sensación de hacer algo que <strong>nunca hago</strong>","q2a"],
+["https://images.unsplash.com/photo-1533130061792-64b345e4a833?auto=format&fit=crop&w=1000&q=85","⚡","La sensación de hacer algo con <strong>adrenalina</strong>","q2a"],
 ["https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1000&q=85","🥂","La sensación de disfrutar algo <strong>especial</strong>","q2b"]]],
 q2a:[2,"¿Dónde quieres que ocurra?",[
 ["https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=85","🏎️","Con los pies en la <strong>tierra</strong>","q3a"],
@@ -55,12 +55,12 @@ spa:[3,"¿Cómo quieres desconectar?",[
 };
 const reacts={q2a:"Vale... vamos a mantener esto bajo control. <span>Más o menos.</span>",q2b:"Hmm... interesante elección. 👀",q3a:"Bien. Aquí ya empezamos a tomar decisiones serias.",q3b:"Parece que el suelo no era imprescindible.",q3c:"Perfecto. Veamos qué tipo de descubrimiento tienes en mente.",spa:"Buena decisión. Ahora sí que vamos a parar el mundo."};
 const r={
-jarama:["https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1800&q=90","🏁 Velocidad · Curvas · Adrenalina","JARAMA","Prepárate para ponerte al volante.","Y sí, voy contigo. ❤️"],
+jarama:["https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1800&q=90","🏁 Velocidad · Curvas · Adrenalina","JARAMA","Prepárate para ponerte al volante.","Vas a tener la oportunidad de demostrar lo bune piloto que eres. ❤️"],
 drifting:["https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1800&q=90","😈 Derrapes · Humo · Caos","DRIFTING","Prepárate para perder un poco el control.","Y sí, quiero ver cómo se te da. ❤️"],
 simulator:["https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1800&q=90","✈️ Piloto · Mandos · Despegue","SIMULADOR DE VUELO","Tú mandas.","Yo me encargo de ser pasajera."],
 wind:["https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?auto=format&fit=crop&w=1800&q=90","🌪️ Volar · Gravedad · Aire","TÚNEL DE VIENTO","La gravedad es opcional.","Esta vez no te dejo volar solo. 😏"],
-cocktails:["https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1800&q=90","🍸 Agitar · Mezclar · Probar","TALLER DE COCKTAILS","Hoy te toca ser bartender.","Yo me encargo de hacer de catadora. 😌"],
-chocolate:["https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1800&q=90","🍫 Chocolate · Crear · Disfrutar","TALLER DE CHOCOLATE","Chocolate. ¿Hace falta decir algo más?","Esta vez lo hacemos nosotros. 🍫"],
+cocktails:["https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1800&q=90","🍸 Agitar · Mezclar · Probar","TALLER DE COCKTAILS","Hoy te toca ser bartender.","Yo me encargo de hacer de catadora de unos buenos overpriced cocktails. 😌"],
+chocolate:["https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1800&q=90","🍫 Chocolate · Crear · Disfrutar","TALLER DE CHOCOLATE","Chocolate. ¿Hace falta decir algo más para covencerte?","Esta vez lo hacemos nosotros. 🍫"],
 spa:["https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1800&q=90","🛁 Parar · Relajarse · Disfrutar","SPA","Hoy no hay nada que hacer.","Solo relajarnos y disfrutar juntos. ❤️"]};
 let finalKey="";
 function hide(){["start","game","reaction","reveal","result"].forEach(x=>document.getElementById(x).classList.add("hidden"))}
