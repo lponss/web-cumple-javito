@@ -64,7 +64,12 @@ chocolate:["bombones.jpeg","🍫 Chocolate · Crear · Disfrutar","TALLER DE CHO
 spa:["spasitio.jpg","🛁 Parar · Relajarse · Disfrutar","SPA","Hoy no hay nada que hacer.","Solo relajarnos y disfrutar juntos. ❤️"]};
 let finalKey="";
 function hide(){["start","game","reaction","reveal","result"].forEach(x=>document.getElementById(x).classList.add("hidden"))}
-function qshow(id){hide();document.getElementById("game").classList.remove("hidden");let d=qs[id];d2.classList.toggle("active",d[0]>=2);d3.classList.toggle("active",d[0]>=3);qbox.innerHTML='<div class="eyebrow">Vamos a empezar fácil...</div><h2>'+d[1]+'</h2><div class="cards">'+d[2].map(c=>'<button class="card" onclick="choose(\''+c[3]+'\')"><div class="pic" style="background-image:url(\''+c[0]+'\')"></div><div class="body"><div class="icon">'+c[1]+'</div><div class="ct">'+c[2]+'</div><div class="arrow">→</div></div></button>').join("")+'</div>'}
+function qshow(id){hide();document.getElementById("game").classList.remove("hidden");let d=qs[id];d2.classList.toggle("active",d[0]>=2);d3.classList.toggle("active",d[0]>=3);let intro = d[0] === 1
+  ? "Vamos a empezar fácil..."
+  : d[0] === 2
+  ? "Vale, seguimos."
+  : "Última decisión.";
+qbox.innerHTML='<div class="eyebrow">'+intro+'</div><h2>'+d[1]+'</h2><div class="cards">'+d[2].map(c=>'<button class="card" onclick="choose(\''+c[3]+'\')"><div class="pic" style="background-image:url(\''+c[0]+'\')"></div><div class="body"><div class="icon">'+c[1]+'</div><div class="ct">'+c[2]+'</div><div class="arrow">→</div></div></button>').join("")+'</div>'}
 function choose(id){if(r[id]){finalKey=id;hide();reaction.classList.remove("hidden");rt.innerHTML="Creo que ya sé por dónde van los tiros...";setTimeout(()=>{hide();reveal.classList.remove("hidden")},900);return}hide();reaction.classList.remove("hidden");rt.innerHTML=reacts[id]||"Hmm... interesante elección. 👀";setTimeout(()=>qshow(id),1050)}
 function result(){let x=r[finalKey];hide();document.getElementById("result").classList.remove("hidden");photo.style.backgroundImage="url('"+x[0]+"')";tag.textContent=x[1];title.textContent=x[2];line.textContent=x[3];note.textContent=x[4]}
 </script></body></html>
