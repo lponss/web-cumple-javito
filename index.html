@@ -39,7 +39,7 @@ q2a:[2,"¿Dónde quieres que ocurra?",[
 ["conductor.PNG","🏎️","Con los pies en la <strong>tierra</strong>","q3a"],
 ["aire.PNG","✈️","Prefiero <strong>despegar</strong>","q3b"]]],
 q2b:[2,"¿Qué te apetece más?",[
-["aperol.PNG","🧠","Descubrir algo <strong>nuevo</strong> y disfrutarlo","q3c"],
+["aperol.jpeg","🧠","Descubrir algo <strong>nuevo</strong> y disfrutarlo","q3c"],
 ["spa.PNG","🧘","Parar el mundo durante un <strong>rato</strong>","spa"]]],
 q3a:[3,"¿Qué te parece más divertido?",[
 ["https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1000&q=85","🏁","Ir a toda velocidad y sentirte piloto de <strong>carreras</strong>","jarama"],
@@ -48,20 +48,20 @@ q3b:[3,"¿Qué te gustaría sentir?",[
 ["https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=85","✈️","Tener el control y sentirte piloto por un <strong>día</strong>","simulator"],
 ["https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?auto=format&fit=crop&w=1000&q=85","🌪️","Olvidarte de la gravedad y sentir que estás <strong>volando</strong>","wind"]]],
 q3c:[3,"¿Qué te resulta más tentador?",[
-["fiesta.PNG","🍸","Agitar la coctelera y descubrir tu talento <strong>oculto</strong>","cocktails"],
+["fiesta.JPG","🍸","Agitar la coctelera y descubrir tu talento <strong>oculto</strong>","cocktails"],
 ["choco.PNG","🍫","Dar rienda suelta a tu lado más <strong>goloso</strong>","chocolate"]]],
 spa:[3,"¿Cómo quieres desconectar?",[
 ["https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1000&q=85","🛁","No hacer absolutamente nada y dejarte <strong>cuidar</strong>","spa"]]]
 };
 const reacts={q2a:"Vale... vamos a mantener esto bajo control. <span>Más o menos.</span>",q2b:"Hmm... interesante elección. 👀",q3a:"Bien. Aquí ya empezamos a tomar decisiones serias.",q3b:"Parece que el suelo no era imprescindible.",q3c:"Perfecto. Veamos qué tipo de descubrimiento tienes en mente.",spa:"Buena decisión. Ahora sí que vamos a parar el mundo."};
 const r={
-jarama:["jarama.PNG","🏁 Velocidad · Curvas · Adrenalina","Conducir FÓRMULA en Jarama","Prepárate para ponerte al volante.","Vas a tener la oportunidad de demostrar lo buen piloto que eres. ❤️"],
-drifting:["drift.PNG","😈 Derrapes · Humo · Caos","DRIFTING","Prepárate para perder un poco el control y sacar tu lado más Fast & Furious.","Y sí, quiero ver cómo se te da. ❤️"],
-simulator:["vuelo.PNG","✈️ Piloto · Mandos · Despegue","SIMULADOR DE VUELO","Tú mandas.","Yo me encargo de ser pasajera."],
-wind:["fly.PNG","🌪️ Volar · Gravedad · Aire","TÚNEL DE VIENTO","La gravedad es opcional.","Esta vez no te dejo volar solo. 😏"],
-cocktails:["cocktail.PNG","🍸 Agitar · Mezclar · Probar","TALLER DE COCKTAILS","Hoy te toca ser bartender.","Yo me encargo de hacer de catadora de unos buenos overpriced cocktails. 😌"],
-chocolate:["chocolate.PNG","🍫 Chocolate · Crear · Disfrutar","TALLER DE CHOCOLATE","Chocolate. ¿Hace falta decir algo más para covencerte?","Esta vez lo hacemos nosotros. 🍫"],
-spa:["spasitio.PNG","🛁 Parar · Relajarse · Disfrutar","SPA","Hoy no hay nada que hacer.","Solo relajarnos y disfrutar juntos. ❤️"]};
+jarama:["jarama.jpg","🏁 Velocidad · Curvas · Adrenalina","Conducir FÓRMULA en Jarama","Prepárate para ponerte al volante.","Vas a tener la oportunidad de demostrar lo buen piloto que eres. ❤️"],
+drifting:["drift.jpg","😈 Derrapes · Humo · Caos","DRIFTING","Prepárate para perder un poco el control y sacar tu lado más Fast & Furious.","Y sí, quiero ver cómo se te da. ❤️"],
+simulator:["vuelo.jpg","✈️ Piloto · Mandos · Despegue","SIMULADOR DE VUELO","Tú mandas.","Yo me encargo de ser pasajera."],
+wind:["fly.jpg","🌪️ Volar · Gravedad · Aire","TÚNEL DE VIENTO","La gravedad es opcional.","Esta vez no te dejo volar solo. 😏"],
+cocktails:["cocktail.jpg","🍸 Agitar · Mezclar · Probar","TALLER DE COCKTAILS","Hoy te toca ser bartender.","Yo me encargo de hacer de catadora de unos buenos overpriced cocktails. 😌"],
+chocolate:["chocolate.jpg","🍫 Chocolate · Crear · Disfrutar","TALLER DE CHOCOLATE","Chocolate. ¿Hace falta decir algo más para covencerte?","Esta vez lo hacemos nosotros. 🍫"],
+spa:["spasitio.jpg","🛁 Parar · Relajarse · Disfrutar","SPA","Hoy no hay nada que hacer.","Solo relajarnos y disfrutar juntos. ❤️"]};
 let finalKey="";
 function hide(){["start","game","reaction","reveal","result"].forEach(x=>document.getElementById(x).classList.add("hidden"))}
 function qshow(id){hide();document.getElementById("game").classList.remove("hidden");let d=qs[id];d2.classList.toggle("active",d[0]>=2);d3.classList.toggle("active",d[0]>=3);qbox.innerHTML='<div class="eyebrow">Vamos a empezar fácil...</div><h2>'+d[1]+'</h2><div class="cards">'+d[2].map(c=>'<button class="card" onclick="choose(\''+c[3]+'\')"><div class="pic" style="background-image:url(\''+c[0]+'\')"></div><div class="body"><div class="icon">'+c[1]+'</div><div class="ct">'+c[2]+'</div><div class="arrow">→</div></div></button>').join("")+'</div>'}
