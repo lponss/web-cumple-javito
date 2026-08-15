@@ -27,7 +27,7 @@
 
 <section id="game" class="screen hidden"><div class="panel question"><div class="progress"><i class="dot active"></i><i class="pl"></i><i id="d2" class="dot"></i><i class="pl"></i><i id="d3" class="dot"></i></div><div id="qbox"></div></div></section>
 <section id="reaction" class="screen hidden"><div class="panel reaction"><p id="rt"></p></div></section>
-<section id="reveal" class="screen hidden"><div class="panel reveal"><div><div class="eyebrow">Creo que ya lo tengo...</div><h2>Creo que ya sé dónde has acabado.</h2><p>¿Quieres descubrirlo?</p><button class="btn" onclick="result()">DESCUBRIR MI REGALO →</button></div></div></section>
+<section id="reveal" class="screen hidden"><div class="panel reveal"><div><div class="eyebrow">Creo que ya lo tengo...</div><h2>Ya has decidido tu destino.</h2><p>¿Estás listo para descubrirlo?</p><button class="btn" onclick="result()">DESCUBRIR MI REGALO →</button></div></div></section>
 <section id="result" class="screen hidden"><div class="panel result"><div id="photo" class="photo"><span id="tag" class="tag"></span></div><div class="copy"><div class="eyebrow">Tu regalo es...</div><h1 id="title"></h1><p id="line" class="line"></p><p id="note" class="note"></p></div></div></section>
 
 <script>
@@ -40,27 +40,27 @@ q2a:[2,"¿Dónde quieres que ocurra?",[
 ["aire.PNG","✈️","Prefiero <strong>despegar</strong>","q3b"]]],
 q2b:[2,"¿Qué te apetece más?",[
 ["aperol.jpeg","🧠","Descubrir algo <strong>nuevo</strong> y disfrutarlo","q3c"],
-["javichill.jpg","🧘","Parar el mundo durante un <strong>rato</strong>","spa"]]],
+["javichill.jpg","🧘","Parar el mundo durante un rato y <strong>desconectar</strong>","spa"]]],
 q3a:[3,"¿Qué te parece más divertido?",[
 ["alonso.PNG","🏁","Ir a toda velocidad y sentirte piloto de <strong>carreras</strong>","jarama"],
 ["fast.jpg","😈","Derrapar, perder un poco el control y disfrutar del <strong>caos</strong>","drifting"]]],
 q3b:[3,"¿Qué te gustaría sentir?",[
-["piloto.PNG","✈️","Tener el control y sentirte piloto por un <strong>día</strong>","simulator"],
+["piloto.PNG","✈️","Tener el control y sentirte <strong>piloto</strong> por un día","simulator"],
 ["astro.PNG","🌪️","Olvidarte de la gravedad y sentir que estás <strong>volando</strong>","wind"]]],
 q3c:[3,"¿Qué te resulta más tentador?",[
-["barman.PNG","🍸","Agitar la coctelera y descubrir tu talento <strong>oculto</strong>","cocktails"],
+["cocktail2.PNG","🍸","Agitar la coctelera y descubrir tu <strong>talento oculto</strong>","cocktails"],
 ["choco.PNG","🍫","Dar rienda suelta a tu lado más <strong>goloso</strong>","chocolate"]]],
 spa:[3,"¿Cómo quieres desconectar?",[
 ["spa.PNG","🛁","No hacer absolutamente nada y dejarte <strong>cuidar</strong>","spa"]]]
 };
-const reacts={q2a:"Vale... vamos a mantener esto bajo control. <span>Más o menos.</span>",q2b:"Hmm... interesante elección. 👀",q3a:"Bien. Aquí ya empezamos a tomar decisiones serias.",q3b:"Parece que el suelo no era imprescindible.",q3c:"Perfecto. Veamos qué tipo de descubrimiento tienes en mente.",spa:"Buena decisión. Ahora sí que vamos a parar el mundo."};
+const reacts={q2a:"Vale... vamos acercándonos a tu regalo. <span>Espero que lo hayas pensado bien...</span>",q2b:"Hmm... interesante elección. 👀",q3a:"Bien. Aquí ya empezamos a tomar decisiones serias.",q3b:"Parece que el suelo no era imprescindible.",q3c:"Perfecto. Veamos qué tipo de descubrimiento tienes en mente.",spa:"Buena decisión. Ahora sí que vamos a parar el mundo."};
 const r={
 jarama:["jarama.jpg","🏁 Velocidad · Curvas · Adrenalina","Conducir FÓRMULA en Jarama","Prepárate para ponerte al volante.","Vas a tener la oportunidad de demostrar lo buen piloto que eres. ❤️"],
 drifting:["drift2.jpg","😈 Derrapes · Humo · Caos","DRIFTING","Prepárate para perder un poco el control y sacar tu lado más Fast & Furious.","Y sí, quiero ver cómo se te da. ❤️"],
 simulator:["avion.jpg","✈️ Piloto · Mandos · Despegue","SIMULADOR DE VUELO","Tú mandas.","Yo me encargo de ser pasajera."],
 wind:["viento2.jpg","🌪️ Volar · Gravedad · Aire","TÚNEL DE VIENTO","La gravedad es opcional.","Esta vez no te dejo volar solo. 😏"],
-cocktails:["cocktail.jpg","🍸 Agitar · Mezclar · Probar","TALLER DE COCKTAILS","Hoy te toca ser bartender.","Yo me encargo de hacer de catadora de unos buenos overpriced cocktails. 😌"],
-chocolate:["chocolate.jpg","🍫 Chocolate · Crear · Disfrutar","TALLER DE CHOCOLATE","Chocolate. ¿Hace falta decir algo más para covencerte?","Esta vez lo hacemos nosotros. 🍫"],
+cocktails:["barra.jpg","🍸 Agitar · Mezclar · Probar","TALLER DE COCKTAILS","Hoy te toca ser bartender.","Yo me encargo de hacer de catadora de unos buenos overpriced cocktails. 😌"],
+chocolate:["bombones.jpeg","🍫 Chocolate · Crear · Disfrutar","TALLER DE CHOCOLATE","Chocolate. ¿Hace falta decir algo más para covencerte?","Esta vez lo hacemos nosotros. 🍫"],
 spa:["spasitio.jpg","🛁 Parar · Relajarse · Disfrutar","SPA","Hoy no hay nada que hacer.","Solo relajarnos y disfrutar juntos. ❤️"]};
 let finalKey="";
 function hide(){["start","game","reaction","reveal","result"].forEach(x=>document.getElementById(x).classList.add("hidden"))}
