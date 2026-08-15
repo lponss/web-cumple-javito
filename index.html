@@ -56,12 +56,12 @@ spa:[3,"¿Cómo quieres desconectar?",[
 const reacts={q2a:"Vale... vamos a mantener esto bajo control. <span>Más o menos.</span>",q2b:"Hmm... interesante elección. 👀",q3a:"Bien. Aquí ya empezamos a tomar decisiones serias.",q3b:"Parece que el suelo no era imprescindible.",q3c:"Perfecto. Veamos qué tipo de descubrimiento tienes en mente.",spa:"Buena decisión. Ahora sí que vamos a parar el mundo."};
 const r={
 jarama:["jarama.PNG","🏁 Velocidad · Curvas · Adrenalina","Conducir FÓRMULA en Jarama","Prepárate para ponerte al volante.","Vas a tener la oportunidad de demostrar lo buen piloto que eres. ❤️"],
-drifting:["https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1800&q=90","😈 Derrapes · Humo · Caos","DRIFTING","Prepárate para perder un poco el control.","Y sí, quiero ver cómo se te da. ❤️"],
-simulator:["https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1800&q=90","✈️ Piloto · Mandos · Despegue","SIMULADOR DE VUELO","Tú mandas.","Yo me encargo de ser pasajera."],
-wind:["https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?auto=format&fit=crop&w=1800&q=90","🌪️ Volar · Gravedad · Aire","TÚNEL DE VIENTO","La gravedad es opcional.","Esta vez no te dejo volar solo. 😏"],
-cocktails:["https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1800&q=90","🍸 Agitar · Mezclar · Probar","TALLER DE COCKTAILS","Hoy te toca ser bartender.","Yo me encargo de hacer de catadora de unos buenos overpriced cocktails. 😌"],
-chocolate:["https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1800&q=90","🍫 Chocolate · Crear · Disfrutar","TALLER DE CHOCOLATE","Chocolate. ¿Hace falta decir algo más para covencerte?","Esta vez lo hacemos nosotros. 🍫"],
-spa:["https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1800&q=90","🛁 Parar · Relajarse · Disfrutar","SPA","Hoy no hay nada que hacer.","Solo relajarnos y disfrutar juntos. ❤️"]};
+drifting:["drift.PNG","😈 Derrapes · Humo · Caos","DRIFTING","Prepárate para perder un poco el control y sacar tu lado más Fast & Furious.","Y sí, quiero ver cómo se te da. ❤️"],
+simulator:["vuelo.PNG","✈️ Piloto · Mandos · Despegue","SIMULADOR DE VUELO","Tú mandas.","Yo me encargo de ser pasajera."],
+wind:["fly.PNG","🌪️ Volar · Gravedad · Aire","TÚNEL DE VIENTO","La gravedad es opcional.","Esta vez no te dejo volar solo. 😏"],
+cocktails:["cocktail.PNG","🍸 Agitar · Mezclar · Probar","TALLER DE COCKTAILS","Hoy te toca ser bartender.","Yo me encargo de hacer de catadora de unos buenos overpriced cocktails. 😌"],
+chocolate:["chocolate.PNG","🍫 Chocolate · Crear · Disfrutar","TALLER DE CHOCOLATE","Chocolate. ¿Hace falta decir algo más para covencerte?","Esta vez lo hacemos nosotros. 🍫"],
+spa:["spasitio.PNG","🛁 Parar · Relajarse · Disfrutar","SPA","Hoy no hay nada que hacer.","Solo relajarnos y disfrutar juntos. ❤️"]};
 let finalKey="";
 function hide(){["start","game","reaction","reveal","result"].forEach(x=>document.getElementById(x).classList.add("hidden"))}
 function qshow(id){hide();document.getElementById("game").classList.remove("hidden");let d=qs[id];d2.classList.toggle("active",d[0]>=2);d3.classList.toggle("active",d[0]>=3);qbox.innerHTML='<div class="eyebrow">Vamos a empezar fácil...</div><h2>'+d[1]+'</h2><div class="cards">'+d[2].map(c=>'<button class="card" onclick="choose(\''+c[3]+'\')"><div class="pic" style="background-image:url(\''+c[0]+'\')"></div><div class="body"><div class="icon">'+c[1]+'</div><div class="ct">'+c[2]+'</div><div class="arrow">→</div></div></button>').join("")+'</div>'}
