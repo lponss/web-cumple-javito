@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Un regalo para ti</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap");
+:root{--paper:#f4f0e9;--white:#fbfaf7;--ink:#252522;--muted:#716d66;--gold:#b38a4a;--line:#ded7cc}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",Arial,sans-serif}button{font:inherit}
+.screen{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:28px}.panel{width:min(1080px,100%);animation:in .5s ease}.hidden{display:none!important}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.hero{position:relative;overflow:hidden;background:#252521;color:#f8f4ec;border-radius:30px;min-height:calc(100svh - 56px);display:flex;align-items:center;box-shadow:0 18px 55px #2a231a1a}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#191713c7,#19171340,#1917130d)}
+.hero-photo{position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?auto=format&fit=crop&w=1800&q=85") center/cover;opacity:.55}
+.hero-content{position:relative;z-index:1;width:min(650px,90%);padding:clamp(30px,7vw,78px)}h1,h2{font-family:"Playfair Display",Georgia,serif;font-weight:500}
+.hero h1{font-size:clamp(2.8rem,7vw,5.8rem);line-height:1.02;margin:20px 0 25px}.hero h1 em{font-style:normal;color:#d1ad70}.hero p{font-size:1.08rem;line-height:1.7;color:#ddd7cd;max-width:560px}.hero .small{margin-top:0;color:#d1ad70;font-family:"Playfair Display",Georgia,serif;font-size:1.15rem}
+.btn{margin-top:30px;border:0;border-radius:999px;background:#d2ad70;color:#252521;padding:16px 30px;font-weight:700;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px)}
+.question{text-align:center}.progress{display:flex;justify-content:center;align-items:center;margin-bottom:35px}.dot{width:10px;height:10px;border:1px solid #b9b1a5;border-radius:50%;background:var(--white)}.dot.active{background:var(--ink);border-color:var(--ink)}.pl{height:1px;width:90px;background:#cfc7bb}
+.question h2{font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.1;margin:18px auto 42px;max-width:850px}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:900px;margin:auto}.card{padding:0;background:var(--white);border:1px solid var(--line);border-radius:26px;overflow:hidden;text-align:left;cursor:pointer;transition:.25s;box-shadow:0 8px 25px #2a231a0d}.card:hover{transform:translateY(-5px);box-shadow:0 18px 40px #2a231a1f;border-color:#c7b38f}.pic{height:255px;background-size:cover;background-position:center}.body{padding:23px 24px 25px}.icon{font-size:1.5rem;margin-bottom:15px}.ct{font-family:"Playfair Display",Georgia,serif;font-size:1.45rem;line-height:1.25}.ct strong{color:var(--gold)}.arrow{float:right;margin-top:18px;font-size:1.5rem}
+.reaction,.reveal{min-height:60svh;display:flex;align-items:center;justify-content:center;text-align:center}.reaction p{font:500 clamp(1.8rem,4vw,3.2rem)/1.25 "Playfair Display",Georgia,serif;max-width:720px}.reveal h2{font-size:clamp(2.4rem,6vw,4.6rem);margin:18px auto;max-width:700px}.reveal p{color:var(--muted)}.reveal .btn{background:var(--ink);color:white}
+.result{max-width:1050px}.photo{height:min(62svh,610px);border-radius:30px;background-size:cover;background-position:center;position:relative;overflow:hidden;display:flex;align-items:flex-end;box-shadow:0 18px 55px #2a231a1a}.photo:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#14120fb8)}.tag{position:relative;z-index:1;margin:30px;color:white;background:#14120fa6;padding:10px 15px;border-radius:999px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}.copy{text-align:center;padding:35px 15px 50px}.copy h1{font-size:clamp(3rem,8vw,6rem);margin:0 0 12px}.line{font:1.5rem "Playfair Display",Georgia,serif}.note{color:var(--muted);font-style:italic}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media(max-width:700px){.screen{padding:15px}.hero{min-height:calc(100svh - 30px);border-radius:22px}.hero-content{padding:32px 25px}.cards{grid-template-columns:1fr}.pic{height:210px}.question h2{margin-bottom:28px}.pl{width:45px}.photo{height:48svh;border-radius:22px}}
+</style></head><body>
+
+<section id="start" class="screen"><div class="panel hero"><div class="hero-photo"></div><div class="hero-content">
+<div class="eyebrow">Para ti</div><h1>Este año he decidido <em>complicarte</em> un poco el regalo.</h1>
+<p>Para descubrirlo tendrás que tomar unas cuantas decisiones…</p><p class="small">y veremos dónde acabas.</p><button class="btn" onclick="qshow('q1')">EMPEZAR →</button>
+</div></div></section>
+
+<section id="game" class="screen hidden"><div class="panel question"><div class="progress"><i class="dot active"></i><i class="pl"></i><i id="d2" class="dot"></i><i class="pl"></i><i id="d3" class="dot"></i></div><div id="qbox"></div></div></section>
+<section id="reaction" class="screen hidden"><div class="panel reaction"><p id="rt"></p></div></section>
+<section id="reveal" class="screen hidden"><div class="panel reveal"><div><div class="eyebrow">Creo que ya lo tengo...</div><h2>Creo que ya sé dónde has acabado.</h2><p>¿Quieres descubrirlo?</p><button class="btn" onclick="result()">DESCUBRIR MI REGALO →</button></div></div></section>
+<section id="result" class="screen hidden"><div class="panel result"><div id="photo" class="photo"><span id="tag" class="tag"></span></div><div class="copy"><div class="eyebrow">Tu regalo es...</div><h1 id="title"></h1><p id="line" class="line"></p><p id="note" class="note"></p></div></div></section>
+
+<script>
+const qs={
+q1:[1,"¿Qué quieres recordar de este cumpleaños?",[
+["https://images.unsplash.com/photo-1533130061792-64b345e4a833?auto=format&fit=crop&w=1000&q=85","⚡","La sensación de hacer algo que <strong>nunca hago</strong>","q2a"],
+["https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1000&q=85","🥂","La sensación de disfrutar algo <strong>especial</strong>","q2b"]]],
+q2a:[2,"¿Dónde quieres que ocurra?",[
+["https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=85","🏎️","Con los pies en la <strong>tierra</strong>","q3a"],
+["https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=85","✈️","Prefiero <strong>despegar</strong>","q3b"]]],
+q2b:[2,"¿Qué te apetece más?",[
+["https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1000&q=85","🧠","Descubrir algo <strong>nuevo</strong> y disfrutarlo","q3c"],
+["https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1000&q=85","🧘","Parar el mundo durante un <strong>rato</strong>","spa"]]],
+q3a:[3,"¿Qué te parece más divertido?",[
+["https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1000&q=85","🏁","Ir a toda velocidad y sentirte piloto de <strong>carreras</strong>","jarama"],
+["https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1000&q=85","😈","Derrapar, perder un poco el control y disfrutar del <strong>caos</strong>","drifting"]]],
+q3b:[3,"¿Qué te gustaría sentir?",[
+["https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=85","✈️","Tener el control y sentirte piloto por un <strong>día</strong>","simulator"],
+["https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?auto=format&fit=crop&w=1000&q=85","🌪️","Olvidarte de la gravedad y sentir que estás <strong>volando</strong>","wind"]]],
+q3c:[3,"¿Qué te resulta más tentador?",[
+["https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1000&q=85","🍸","Agitar la coctelera y descubrir tu talento <strong>oculto</strong>","cocktails"],
+["https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85","🍫","Dar rienda suelta a tu lado más <strong>goloso</strong>","chocolate"]]],
+spa:[3,"¿Cómo quieres desconectar?",[
+["https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1000&q=85","🛁","No hacer absolutamente nada y dejarte <strong>cuidar</strong>","spa"]]]
+};
+const reacts={q2a:"Vale... vamos a mantener esto bajo control. <span>Más o menos.</span>",q2b:"Hmm... interesante elección. 👀",q3a:"Bien. Aquí ya empezamos a tomar decisiones serias.",q3b:"Parece que el suelo no era imprescindible.",q3c:"Perfecto. Veamos qué tipo de descubrimiento tienes en mente.",spa:"Buena decisión. Ahora sí que vamos a parar el mundo."};
+const r={
+jarama:["https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1800&q=90","🏁 Velocidad · Curvas · Adrenalina","JARAMA","Prepárate para ponerte al volante.","Y sí, voy contigo. ❤️"],
+drifting:["https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1800&q=90","😈 Derrapes · Humo · Caos","DRIFTING","Prepárate para perder un poco el control.","Y sí, quiero ver cómo se te da. ❤️"],
+simulator:["https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1800&q=90","✈️ Piloto · Mandos · Despegue","SIMULADOR DE VUELO","Tú mandas.","Yo me encargo de ser pasajera."],
+wind:["https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?auto=format&fit=crop&w=1800&q=90","🌪️ Volar · Gravedad · Aire","TÚNEL DE VIENTO","La gravedad es opcional.","Esta vez no te dejo volar solo. 😏"],
+cocktails:["https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1800&q=90","🍸 Agitar · Mezclar · Probar","TALLER DE COCKTAILS","Hoy te toca ser bartender.","Yo me encargo de hacer de catadora. 😌"],
+chocolate:["https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1800&q=90","🍫 Chocolate · Crear · Disfrutar","TALLER DE CHOCOLATE","Chocolate. ¿Hace falta decir algo más?","Esta vez lo hacemos nosotros. 🍫"],
+spa:["https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1800&q=90","🛁 Parar · Relajarse · Disfrutar","SPA","Hoy no hay nada que hacer.","Solo relajarnos y disfrutar juntos. ❤️"]};
+let finalKey="";
+function hide(){["start","game","reaction","reveal","result"].forEach(x=>document.getElementById(x).classList.add("hidden"))}
+function qshow(id){hide();document.getElementById("game").classList.remove("hidden");let d=qs[id];d2.classList.toggle("active",d[0]>=2);d3.classList.toggle("active",d[0]>=3);qbox.innerHTML='<div class="eyebrow">Vamos a empezar fácil...</div><h2>'+d[1]+'</h2><div class="cards">'+d[2].map(c=>'<button class="card" onclick="choose(\''+c[3]+'\')"><div class="pic" style="background-image:url(\''+c[0]+'\')"></div><div class="body"><div class="icon">'+c[1]+'</div><div class="ct">'+c[2]+'</div><div class="arrow">→</div></div></button>').join("")+'</div>'}
+function choose(id){if(r[id]){finalKey=id;hide();reaction.classList.remove("hidden");rt.innerHTML="Creo que ya sé por dónde van los tiros...";setTimeout(()=>{hide();reveal.classList.remove("hidden")},900);return}hide();reaction.classList.remove("hidden");rt.innerHTML=reacts[id]||"Hmm... interesante elección. 👀";setTimeout(()=>qshow(id),1050)}
+function result(){let x=r[finalKey];hide();document.getElementById("result").classList.remove("hidden");photo.style.backgroundImage="url('"+x[0]+"')";tag.textContent=x[1];title.textContent=x[2];line.textContent=x[3];note.textContent=x[4]}
+</script></body></html>
